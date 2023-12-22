@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useReducer } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import TodoEditor from "./components/TodoEditor";
@@ -25,38 +25,58 @@ const mockData = [
   },
 ];
 
+function reducer(state, action) {
+  switch (action.type) {
+    // Todo 목록 추가
+    case "CREATE": {
+      return [action.data, ...state];
+    }
+
+    // Todo 체크박스 토글
+    case "UPDATE": {
+      // 인자로 전달받은 id값과 같은 항목일 경우에만 isDone항목을 바꾼다.
+      return state.map((it) =>
+        it.id === action.data ? { ...it, isDone: !it.isDone } : it
+      );
+    }
+
+    case "DELETE": {
+      return state.filter((it) => it.id !== action.data);
+    }
+  }
+}
+
 function App() {
-  const [todos, setTodos] = useState(mockData);
+  const [todos, dispatch] = useReducer(reducer, mockData);
+
   const idRef = useRef(3);
-
+  // Todo 목록 추가 시
   const onCreate = (content) => {
-    const newTodo = {
-      id: idRef.current++,
-      isDone: false,
-      content,
-      createdDate: new Date().getTime(),
-    };
-
-    setTodos([newTodo, ...todos]);
+    dispatch({
+      type: "CREATE",
+      data: {
+        id: idRef.current++,
+        isDone: false,
+        content,
+        createdDate: new Date().getTime(),
+      },
+    });
   };
 
   // 체크박스 업데이트시
-  const onUpdate = (targetID) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === targetID) {
-          return {
-            ...todo,
-            isDone: !todo.isDone,
-          };
-        } else return todo;
-      })
-    );
+  const onUpdate = (targetId) => {
+    dispatch({
+      type: "UPDATE",
+      data: targetId,
+    });
   };
 
   // 삭제 기능
   const onDelete = (targetId) => {
-    setTodos(todos.filter((todo) => todo.id !== targetId));
+    dispatch({
+      type: "DELETE",
+      data: targetId,
+    });
   };
 
   return (
