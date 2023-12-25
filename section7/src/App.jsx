@@ -1,4 +1,4 @@
-import { useState, useRef, useReducer } from "react";
+import { useState, useRef, useReducer, useCallback } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import TodoEditor from "./components/TodoEditor";
@@ -40,6 +40,7 @@ function reducer(state, action) {
       );
     }
 
+    // Todo 삭제
     case "DELETE": {
       return state.filter((it) => it.id !== action.data);
     }
@@ -64,20 +65,20 @@ function App() {
   };
 
   // 체크박스 업데이트시
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: "UPDATE",
       data: targetId,
     });
-  };
+  }, []);
 
   // 삭제 기능
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     dispatch({
       type: "DELETE",
       data: targetId,
     });
-  };
+  }, []);
 
   return (
     <div className="App">

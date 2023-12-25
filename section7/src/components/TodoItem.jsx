@@ -1,13 +1,7 @@
 import "./TodoItem.css";
+import { memo } from "react";
 
-export default function TodoItem({
-  id,
-  isDone,
-  createdDate,
-  content,
-  onUpdate,
-  onDelete,
-}) {
+function TodoItem({ id, isDone, createdDate, content, onUpdate, onDelete }) {
   // 체크박스 선택 시 핸들러
   const onChangeCheckbox = () => {
     onUpdate(id); // 해당 리스트의 아이디를 전달
@@ -27,3 +21,5 @@ export default function TodoItem({
     </div>
   );
 }
+
+export default memo(TodoItem);
