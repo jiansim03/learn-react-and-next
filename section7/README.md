@@ -1,8 +1,14 @@
-# React + Vite
+# Todo 앱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+_해야할 일을 간편하게 기록할 수 있는 Todo 앱입니다._
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 기능 목록
+
+- 할일 등록
+- 검색
+- 수정, 삭제
+- 완료, 미완료 목록 구분
+- Todo 현황 조회
+  전체, 완료, 미완료 항목 수 확인 가능
