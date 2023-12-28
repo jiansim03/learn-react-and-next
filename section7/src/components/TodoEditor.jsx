@@ -1,11 +1,18 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import "./TodoEditor.css";
+import { TodoDispatchContext } from "./TodoContext";
 
-export default function TodoEditor({ onCreate }) {
+export default function TodoEditor() {
+  const { onCreate } = useContext(TodoDispatchContext);
+
   const [content, setContent] = useState("");
   const inputRef = useRef();
 
   const onChangeContent = (e) => {
+    if (e.target.value.length > 15) {
+      alert("15자 이상 입력할 수 없어요 :(");
+      return;
+    }
     setContent(e.target.value);
   };
 

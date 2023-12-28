@@ -1,0 +1,14 @@
+body {
+  background-color: rgb(242, 242, 242);
+  margin: 0;
+}
+
+.Header {
+  background-color: #5258ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 20px 40px 60px 40px;
+  position: relative;
+}

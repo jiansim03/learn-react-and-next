@@ -1,0 +1,37 @@
+.CounterWrap {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+
+  border-radius: 5px;
+
+  background-color: white;
+  box-shadow: 0 5px 10px rgb(233, 233, 233);
+  position: absolute;
+  /* top: 50%; */
+
+  bottom: -50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.CounterBox {
+  /* padding: 15px 40px; */
+  display: grid;
+  align-items: center;
+  width: 90px;
+  height: 70px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.CounterBox h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.CounterBox p {
+  margin: 0;
+  font-size: 14px;
+  color: gray;
+  text-align: center;
+}

@@ -1,0 +1,8 @@
+.DatePrinter {
+  /* background-color: #5258ff; */
+  margin-bottom: 10px;
+}
+.DatePrinter > h1 {
+  color: white;
+  margin-bottom: 0px;
+}

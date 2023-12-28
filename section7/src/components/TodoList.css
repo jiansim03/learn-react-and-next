@@ -1,21 +1,26 @@
-/* .TodoList {
-} */
+.TodoList {
+  padding: 20px;
+  min-width: 390px;
+  /* max-width: 800px; */
+  margin: 0 auto;
+}
 
 .TodoList > input {
   width: 100%;
   border: none;
-  border-bottom: 1px solid rgb(220, 220, 220);
-  padding: 15px 0px;
+  border: 1px solid rgb(220, 220, 220);
+  padding: 15px 10px;
   margin-bottom: 20px;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 
 .TodoList > input:focus {
   outline: none;
-  border-bottom: 1px solid #1f93ff;
+  border: 1px solid #5258ff;
 }
 
 .TodoList .todos_wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }

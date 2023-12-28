@@ -1,20 +1,37 @@
 /* 리스트 내 아이템들에 대한 속성 */
 .TodoItem {
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  background-color: white;
   border-bottom: 1px solid rgb(240, 240, 240);
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
+  padding: 20px 10px;
   align-items: center;
 }
 
 /* 체크박스 속성 */
-.TodoItem input {
-  width: 20px;
+.TodoItem input[type="checkbox"] {
+  height: 30px;
+  width: 50px;
+  accent-color: #5258ff;
+  margin: 0;
 }
 
+.TodoItem input[type="text"] {
+  height: 30px;
+  padding: 0px 5px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.TodoItem input[type="text"]:focus {
+  border: 1px solid #5258ff;
+  padding: 0px 5px;
+}
 /* Todo 내용 */
 .TodoItem .content {
   flex: 1;
+  font-weight: 500;
 }
 
 .TodoItem .date {
@@ -28,5 +45,21 @@
   font-size: 14px;
   border: none;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px 15px;
+}
+
+/* 할일 & 날짜 영역 */
+.contentGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#delete {
+  background-color: rgb(208, 208, 208);
+}
+
+#edit {
+  background-color: #5258ff;
+  color: white;
 }
